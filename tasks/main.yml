@@ -1,0 +1,61 @@
+---
+- name: Get updated files from git repository
+  git:
+    repo: "{{project_repo}}"
+    version:  "{{repo_branch}}"
+    dest: "{{project_root_dir}}"
+  when: git_pull_required
+
+- name: Prepare clean
+  tags: ['prepare', 'prepare:clean']
+  file: path={{project_root_dir}}/dist state=absent
+
+- name: Prepare install libraries
+  tags: ['prepare', 'prepare:install:npm']
+  command: npm install --silent
+  args:
+    chdir: "{{project_root_dir}}"
+
+- name: Prepare install dev-libraries
+  tags: ['prepare', 'prepare:install:npm']
+  command: npm install --silent --only=dev
+  args:
+    chdir: "{{project_root_dir}}"
+
+- name: Prepare install typings
+  tags: ['prepare', 'prepare:install:typings']
+  command: typings install
+  args:
+    chdir: "{{project_root_dir}}"
+  when: typings_installer
+
+- name: Compile test execution
+  tags: ['compile', 'compile:test']
+  command: smild test
+  args:
+    chdir: "{{project_root_dir}}"
+
+- name: Compile build project
+  tags: ['compile', 'compile:build']
+  command: smild build -r
+  args:
+    chdir: "{{project_root_dir}}"
+
+- name: Docker clean context
+  file: path={{docker_build_path}}/build/ state=absent
+  tags: ['docker', 'docker:clean']
+
+- name: Docker prepare context
+  copy: src={{item}} dest={{docker_build_path}}/build/
+  with_items:
+    - "{{project_root_dir}}/dist/"
+  tags: ['docker', 'docker:prepare']
+
+- name: Docker build image
+  tags: ['docker', 'docker:build']
+  command: docker build --rm=true --tag {{docker_image_tag}} {{docker_build_path}}
+
+- name: Docker push image
+  tags: ['docker', 'docker:push']
+  command: docker push {{docker_image_tag}}
+  when: docker_push
