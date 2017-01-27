@@ -21,8 +21,9 @@ Smild 3.0 or later
 
 ## Git pull
 if you want to pull a repository you have to change the settings:
-     - docker_build_path: "{{playbook_dir}}/../project/docker",
-     - project_root_dir: "{{playbook_dir}}/../project/"
+---
+ `- docker_build_path: "{{playbook_dir}}/../project/docker",
+ - project_root_dir: "{{playbook_dir}}/../project/"`
 
 ## Dependencies
 
