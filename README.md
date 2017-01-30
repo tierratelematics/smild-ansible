@@ -34,7 +34,7 @@ project_root_dir: "{{playbook_dir}}/../project/"
       gather_facts: False
 
       roles:
-        - { role: smild-ansible,
+        - { role: tierratelematics.smild-ansible,
             project_name: "iot-prettygoat-fe",
             docker_image_version: "0.1.0",
         }
