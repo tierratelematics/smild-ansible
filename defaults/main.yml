@@ -5,7 +5,7 @@ docker_build_path: "{{playbook_dir}}/../docker/"
 project_root_dir: "{{playbook_dir}}/../"
 typings_installer: False
 docker_push: False
-docker_registry: "345762685377.dkr.ecr.eu-west-1.amazonaws.com"
+docker_registry: ""
 docker_image_tag: "{{docker_registry}}/{{project_name}}:{{docker_image_version}}"
 git_pull_required: False
 project_repo: ""
