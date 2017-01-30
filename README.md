@@ -1,9 +1,9 @@
-# Ansible Role: Frontend build
+# Smild Ansible
 
 ## Requirements
 
-Ansible 2.0 or later
-Smild 3.0 or later
+* Ansible 2.0 or later
+* Smild 3.0 or later
 
 ## Role Variables
 
@@ -21,13 +21,10 @@ Smild 3.0 or later
 
 ## Git pull
 if you want to pull a repository you have to change the settings:
----
-`docker_build_path: "{{playbook_dir}}/../project/docker",
-project_root_dir: "{{playbook_dir}}/../project/"`
-
-## Dependencies
-
-None.
+``` 
+docker_build_path: "{{playbook_dir}}/../project/docker",
+project_root_dir: "{{playbook_dir}}/../project/" 
+```
 
 ## Example Playbook
 
@@ -39,9 +36,4 @@ None.
         - { role: frontend_builder,
             project_name: "iot-prettygoat-fe",
             docker_image_version: "0.1.0",
-            git_pull_required: True,
-            project_repo: "https://github.com/tierratelematics/prettygoat-fe.git",
-            project_root_dir: "{{playbook_dir}}/../project",
-            docker_build_path: "{{playbook_dir}}/../project/docker",
-            project_root_dir: "{{playbook_dir}}/../project/"
         }
