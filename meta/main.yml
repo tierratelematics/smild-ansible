@@ -1,0 +1,25 @@
+---
+galaxy_info:
+  author: "Tierratelematics"
+  company: Tierratelematics
+  license: Apache 2.0
+  min_ansible_version: 2.1
+  platforms:
+   - name: EL
+     versions:
+      - 5
+      - 6
+   - name: Fedora
+     versions:
+      - 16
+      - 17
+      - 18
+   - name: Ubuntu
+     versions:
+      - precise
+      - quantal
+      - raring
+      - saucy
+  categories:
+   - web
+dependencies: []
