@@ -4,6 +4,9 @@ docker_image_version: ""
 docker_build_path: "{{playbook_dir}}/../docker/"
 project_root_dir: "{{playbook_dir}}/../"
 typings_installer: False
+s3_sync: False
+s3_bucket: ""
+docker_build: False
 docker_push: False
 docker_registry: ""
 docker_image_tag: "{{docker_registry}}/{{project_name}}:{{docker_image_version}}"

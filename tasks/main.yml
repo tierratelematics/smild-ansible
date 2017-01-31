@@ -41,19 +41,27 @@
   args:
     chdir: "{{project_root_dir}}"
 
+- name: Sync the s3 bucket
+  tags: ['s3','s3:sync']
+  command: aws s3 sync {{project_root_dir}}/dist/main/ s3://{{s3_bucket}} --delete
+  when: s3_sync
+
 - name: Docker clean context
   file: path={{docker_build_path}}/build/ state=absent
   tags: ['docker', 'docker:clean']
+  when: docker_build
 
 - name: Docker prepare context
   copy: src={{item}} dest={{docker_build_path}}/build/
   with_items:
     - "{{project_root_dir}}/dist/"
   tags: ['docker', 'docker:prepare']
+  when: docker_build
 
 - name: Docker build image
   tags: ['docker', 'docker:build']
   command: docker build --rm=true --tag {{docker_image_tag}} {{docker_build_path}}
+  when: docker_build
 
 - name: Docker push image
   tags: ['docker', 'docker:push']

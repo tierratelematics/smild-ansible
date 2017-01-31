@@ -12,6 +12,9 @@
     docker_build_path: "{{playbook_dir}}/../docker/"                                        # the path of Docker
     project_root_dir: "{{playbook_dir}}/../"                                                # the root path of project
     typings_installer: False                                                                # the need to install type with typings
+    s3_sync: False                                                                          # the need to sync with s3 bucket
+    s3_bucket: ""                                                                           # the s3 bucket endpoint
+    docker_build: False                                                                     # the need to build docker image
     docker_push: False                                                                      # the need to push docker image
     docker_registry: ""                                                                     # docker registry
     docker_image_tag: "{{docker_registry}}/{{project_name}}:{{docker_image_version}}"       # the complete name of image
