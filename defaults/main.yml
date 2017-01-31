@@ -3,6 +3,7 @@ project_name: ""
 docker_image_version: ""
 docker_build_path: "{{playbook_dir}}/../docker/"
 project_root_dir: "{{playbook_dir}}/../"
+smild_target_build: "main"
 typings_installer: False
 s3_sync: False
 s3_bucket: ""
