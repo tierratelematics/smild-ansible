@@ -1,3 +1,6 @@
+#0.3.1
+Add syncronize instead of copy
+
 #0.3.0
 Add smild-build target
 
