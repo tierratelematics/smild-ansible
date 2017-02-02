@@ -35,11 +35,19 @@
   args:
     chdir: "{{project_root_dir}}"
 
-- name: Compile build project
+- name: Compile minify build project
   tags: ['compile', 'compile:build']
   command: smild build {{smild_target_build}} -r
   args:
     chdir: "{{project_root_dir}}"
+  when: minify_smild
+
+- name: Compile build project
+  tags: ['compile', 'compile:build']
+  command: smild build {{smild_target_build}}
+  args:
+    chdir: "{{project_root_dir}}"
+  when: not minify_smild
 
 - name: Sync the s3 bucket
   tags: ['s3','s3:sync']
@@ -52,10 +60,12 @@
   when: docker_build
 
 - name: Docker prepare context
-  copy: src={{item}} dest={{docker_build_path}}/build/
-  with_items:
-    - "{{project_root_dir}}/dist/"
-  tags: ['docker', 'docker:prepare']
+  synchronize:
+    src: "{{project_root_dir}}/dist/"
+    dest: "{{docker_build_path}}/build/"
+    delete: yes
+    archive: no
+    recursive: yes
   when: docker_build
 
 - name: Docker build image
