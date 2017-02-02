@@ -13,6 +13,7 @@
     project_root_dir: "{{playbook_dir}}/../"                                                # the root path of project
     smild_target_build: "main"                                                              # the target of smild build
     typings_installer: False                                                                # the need to install type with typings
+    minify_smild: True                                                                      # the need to minify build
     s3_sync: False                                                                          # the need to sync with s3 bucket
     s3_bucket: ""                                                                           # the s3 bucket endpoint
     docker_build: False                                                                     # the need to build docker image
