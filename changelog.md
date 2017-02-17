@@ -1,3 +1,6 @@
+#0.4.0
+Add npm prune option
+
 #0.3.1
 Add syncronize instead of copy
 
