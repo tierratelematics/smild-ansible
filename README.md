@@ -23,6 +23,7 @@
     git_pull_required: False                                                                # the need to pull image from git repository
     project_repo: ""                                                                        # the url of git repository
     repo_branch: "remotes/origin/develop"                                                   # the branch of git repository that you want to pull
+    prune_dev_dependencies: False                                                           # the need to prune devDependencies
 
 
 ## Git pull
