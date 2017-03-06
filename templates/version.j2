@@ -1,0 +1,24 @@
+#jinja2: lstrip_blocks: True
+{
+    "project_name": "{{project_name}}",
+    "version":" {{docker_image_version}}",
+    "target": "{{smild_target_build}}",
+    {% if git_pull_required %}
+    "git": {
+        "url": "{{project_repo}}",
+        "branch": "{{repo_branch}}"
+    },
+    {% endif %}
+    {% if docker_build %}
+    "docker": {
+        "image": "{{docker_image_tag}}",
+        "pushed": "{{docker_push}}"
+    },
+    {% endif %}
+    {% if s3_sync %}
+    "s3": {
+        "bucket": "{{s3_bucket}}"
+    },
+    {% endif %}
+    "date": "{{template_run_date}}"
+}
