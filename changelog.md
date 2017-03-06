@@ -1,3 +1,6 @@
+#0.5.0
+Add metadata file and robots.txt
+
 #0.4.0
 Add npm prune option
 
