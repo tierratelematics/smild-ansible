@@ -84,3 +84,15 @@
   tags: ['docker', 'docker:push']
   command: docker push {{docker_image_tag}}
   when: docker_push
+
+- name: Create version.json file
+  tags: ['version','version:file']
+  template:
+    src: ../templates/version.j2
+    dest: "{{project_root_dir}}/version.json"
+
+- name: Create robots.txt file
+  tags: ['robots','robots:file']
+  template:
+    src: ../templates/robots.j2
+    dest: "{{project_root_dir}}/robots.txt"
