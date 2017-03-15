@@ -1,3 +1,6 @@
+#0.5.1
+Fix destination path of robots.txt and metadata file
+
 #0.5.0
 Add metadata file and robots.txt
 
