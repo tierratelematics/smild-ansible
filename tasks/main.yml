@@ -89,10 +89,10 @@
   tags: ['version','version:file']
   template:
     src: ../templates/version.j2
-    dest: "{{project_root_dir}}/version.json"
+    dest: "{{project_root_dir}}/dist/{{smild_target_build}}/version.json"
 
 - name: Create robots.txt file
   tags: ['robots','robots:file']
   template:
     src: ../templates/robots.j2
-    dest: "{{project_root_dir}}/robots.txt"
+    dest: "{{project_root_dir}}/dist/{{smild_target_build}}/robots.txt"
