@@ -16,3 +16,4 @@ git_pull_required: False
 project_repo: ""
 repo_branch: "remotes/origin/develop"
 prune_dev_dependencies: False
+version_files_path: "{{project_root_dir}}/dist/{{smild_target_build}}"
