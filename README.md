@@ -24,6 +24,7 @@
     project_repo: ""                                                                        # the url of git repository
     repo_branch: "remotes/origin/develop"                                                   # the branch of git repository that you want to pull
     prune_dev_dependencies: False                                                           # the need to prune devDependencies
+    version_files_path: "{{project_root_dir}}/dist/{{smild_target_build}}"                  # the path of version files
 
 
 ## Git pull
