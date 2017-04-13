@@ -66,6 +66,18 @@
   tags: ['docker', 'docker:clean']
   when: docker_build
 
+- name: Create version.json file
+  tags: ['version','version:file']
+  template:
+    src: ../templates/version.j2
+    dest: "{{version_files_path}}/version.json"
+
+- name: Create robots.txt file
+  tags: ['robots','robots:file']
+  template:
+    src: ../templates/robots.j2
+    dest: "{{version_files_path}}/robots.txt"
+
 - name: Docker prepare context
   synchronize:
     src: "{{project_root_dir}}/dist/"
@@ -84,15 +96,3 @@
   tags: ['docker', 'docker:push']
   command: docker push {{docker_image_tag}}
   when: docker_push
-
-- name: Create version.json file
-  tags: ['version','version:file']
-  template:
-    src: ../templates/version.j2
-    dest: "{{version_files_path}}/version.json"
-
-- name: Create robots.txt file
-  tags: ['robots','robots:file']
-  template:
-    src: ../templates/robots.j2
-    dest: "{{version_files_path}}/robots.txt"
