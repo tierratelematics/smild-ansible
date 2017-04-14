@@ -10,6 +10,7 @@ minify_smild: True
 project_name: ""
 project_repo: ""
 project_root_dir: "{{playbook_dir}}/../"
+project_type: "frontend"
 prune_dev_dependencies: False
 repo_branch: "remotes/origin/develop"
 s3_bucket: ""

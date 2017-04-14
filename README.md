@@ -18,6 +18,7 @@
     project_name: ""                                                                        # the name of project
     project_repo: ""                                                                        # the url of git repository
     project_root_dir: "{{playbook_dir}}/../"                                                # the root path of project
+    project_type:                                                                           # the project type (frontend | nodejs | module)
     prune_dev_dependencies: False                                                           # the need to prune devDependencies
     repo_branch: "remotes/origin/develop"                                                   # the branch of git repository that you want to pull
     s3_bucket: ""                                                                           # the s3 bucket endpoint
