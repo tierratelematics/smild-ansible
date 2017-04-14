@@ -1,8 +1,8 @@
-#1.0.1
-Create version file before docker build
-
 #1.1.0
 Add project type
+
+#1.0.1
+Create version file before docker build
 
 #1.0.0
 Make version file path as variable
