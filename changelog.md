@@ -1,3 +1,6 @@
+#1.1.0
+Add project type
+
 #1.0.1
 Create version file before docker build
 
