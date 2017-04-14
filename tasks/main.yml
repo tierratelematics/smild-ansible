@@ -56,6 +56,15 @@
     chdir: "{{project_root_dir}}"
   when: prune_dev_dependencies
 
+- name: Copy package.json
+  synchronize:
+    src: "{{project_root_dir}}/package.json"
+    dest: "{{project_root_dir}}/dist/"
+    delete: no
+    archive: no
+    recursive: no
+  when: project_type != "frontend"
+
 - name: Sync the s3 bucket
   tags: ['s3','s3:sync']
   command: aws s3 sync {{project_root_dir}}/dist/ s3://{{s3_bucket}} --delete
