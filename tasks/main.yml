@@ -80,12 +80,14 @@
   template:
     src: ../templates/version.j2
     dest: "{{version_files_path}}/version.json"
+  when: create_version_files
 
 - name: Create robots.txt file
   tags: ['robots','robots:file']
   template:
     src: ../templates/robots.j2
     dest: "{{version_files_path}}/robots.txt"
+  when: create_version_files
 
 - name: Docker prepare context
   synchronize:
