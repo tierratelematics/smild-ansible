@@ -18,3 +18,4 @@ s3_sync: False
 smild_target_build: "main"
 typings_installer: False
 version_files_path: "{{project_root_dir}}/dist/{{smild_target_build}}"
+create_version_files: True

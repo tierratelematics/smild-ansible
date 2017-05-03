@@ -26,6 +26,7 @@
     smild_target_build: "main"                                                              # the target of smild build
     typings_installer: False                                                                # the need to install type with typings
     version_files_path: "{{project_root_dir}}/dist/{{smild_target_build}}"                  # the path of version files
+    create_version_files: True                                                              # the need to create version files
 
 
 ## Git pull
