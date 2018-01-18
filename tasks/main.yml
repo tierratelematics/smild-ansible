@@ -12,13 +12,13 @@
 
 - name: Prepare install libraries
   tags: ['prepare', 'prepare:install:npm']
-  command: npm install --silent
+  command: npm install
   args:
     chdir: "{{project_root_dir}}"
 
 - name: Prepare install dev-libraries
   tags: ['prepare', 'prepare:install:npm']
-  command: npm install --silent --only=dev
+  command: npm install --only=dev
   args:
     chdir: "{{project_root_dir}}"
 

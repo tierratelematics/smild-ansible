@@ -2,7 +2,7 @@
 galaxy_info:
   author: "Tierratelematics"
   company: Tierratelematics
-  version: 1.2.0
+  version: 1.2.1
   license: Apache 2.0
   description: "Ansible role to build with smild"
   min_ansible_version: 2.1
