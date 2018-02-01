@@ -1,3 +1,6 @@
+#1.3.0
+Add npm-install-peers task
+
 #1.2.1
 Remove silent option of npm
 

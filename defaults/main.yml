@@ -1,4 +1,5 @@
 ---
+create_version_files: True
 docker_build_path: "{{playbook_dir}}/../docker/"
 docker_build: False
 docker_image_tag: "{{docker_registry}}/{{project_name}}:{{docker_image_version}}"
@@ -7,6 +8,7 @@ docker_push: False
 docker_registry: ""
 git_pull_required: False
 minify_smild: True
+npm_install_peers: False
 project_name: ""
 project_repo: ""
 project_root_dir: "{{playbook_dir}}/../"
@@ -18,4 +20,3 @@ s3_sync: False
 smild_target_build: "main"
 typings_installer: False
 version_files_path: "{{project_root_dir}}/dist/{{smild_target_build}}"
-create_version_files: True
