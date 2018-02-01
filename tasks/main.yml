@@ -22,6 +22,13 @@
   args:
     chdir: "{{project_root_dir}}"
 
+- name: Install peer dependencies
+  tags: ['prepare', 'prepare:install:peer:dependencies']
+  command: npm-install-peers
+  args:
+    chdir: "{{project_root_dir}}"
+  when: npm_install_peers
+
 - name: Prepare install typings
   tags: ['prepare', 'prepare:install:typings']
   command: typings install

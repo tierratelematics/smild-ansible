@@ -7,6 +7,7 @@
 
 ## Role Variables
 
+    create_version_files: True                                                              # the need to create version files
     docker_build_path: "{{playbook_dir}}/../docker/"                                        # the path of Docker
     docker_build: False                                                                     # the need to build docker image
     docker_image_tag: "{{docker_registry}}/{{project_name}}:{{docker_image_version}}"       # the complete name of image
@@ -15,6 +16,7 @@
     docker_registry: ""                                                                     # docker registry
     git_pull_required: False                                                                # the need to pull image from git repository
     minify_smild: True                                                                      # the need to minify build
+    npm_install_peers: False                                                                # the need to install peer dependencies
     project_name: ""                                                                        # the name of project
     project_repo: ""                                                                        # the url of git repository
     project_root_dir: "{{playbook_dir}}/../"                                                # the root path of project
@@ -26,7 +28,11 @@
     smild_target_build: "main"                                                              # the target of smild build
     typings_installer: False                                                                # the need to install type with typings
     version_files_path: "{{project_root_dir}}/dist/{{smild_target_build}}"                  # the path of version files
-    create_version_files: True                                                              # the need to create version files
+
+### Note
+With ``npm_install_peers: True`` you must install **npm-install-peers** module globally in your machine with:
+
+    npm install npm-install-peers -g
 
 
 ## Git pull
